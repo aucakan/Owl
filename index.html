@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Owl</title>
   <meta name="description" content="owl">
   <meta name="author" content="owl">
   <link rel="icon" type="image/png" sizes="32x32" href="owl-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="owl-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="owl-180.png">
   <style>
     :root {
@@ -79,14 +81,12 @@
         return;
       }
 
-      let feather = branch.split('').map(Number); // 9 digits to array
+      let feather = branch.split('').map(Number);
 
-      // 10th digit
       const oddWing  = feather[0] + feather[2] + feather[4] + feather[6] + feather[8];
       const evenWing = feather[1] + feather[3] + feather[5] + feather[7];
       feather[9] = ((7 * oddWing) - evenWing) % 10;
 
-      // 11th digit
       const total = feather.slice(0, 10).reduce((a, b) => a + b, 0);
       feather[10] = total % 10;
 
